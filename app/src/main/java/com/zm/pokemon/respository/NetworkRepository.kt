@@ -15,11 +15,7 @@ class NetworkRepository(private val apiInterface: ApiInterface) {
     }
 
     suspend fun getPokManDetails(id: String): Response<PokMonDetails> {
-        try {
-            apiInterface.getPokManDetails(id)
-        } catch (e: Exception) {
-            Log.d("Exception", e.toString())
-        }
+      
         return apiInterface.getPokManDetails(id)
     }
 }
