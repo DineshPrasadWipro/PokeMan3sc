@@ -7,62 +7,62 @@
     tools:context=".view.PokMonDetailsActivity">
 
     <TextView
-        android:id="@+id/pok_man_name"
+        android:id="@+id/pokMonName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name"
-        android:textSize="30sp"
+        android:textSize="@dimen/text_size"
         android:textStyle="bold"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="@dimen/margin_top"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <ImageView
-        android:id="@+id/pok_man_image"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="50dp"
-        android:textSize="30sp"
+        android:id="@+id/pokMonImage"
+        android:layout_width="@dimen/image_view_height"
+        android:layout_height="@dimen/image_view_height"
+        android:layout_marginTop="@dimen/margin_top"
+        android:textSize="@dimen/text_size"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pok_man_name"
+        app:layout_constraintTop_toBottomOf="@+id/pokMonName"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/pok_man_type"
+        android:id="@+id/pokMonType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:layout_marginTop="50dp"
-        android:textSize="30sp"
+        android:layout_marginTop="@dimen/margin_top"
+        android:textSize="@dimen/text_size"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pok_man_image" />
+        app:layout_constraintTop_toBottomOf="@+id/pokMonImage" />
 
     <TextView
-        android:id="@+id/pok_man_weight"
+        android:id="@+id/pokMonWeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:layout_marginTop="50dp"
-        android:textSize="30sp"
+        android:layout_marginTop="@dimen/margin_top"
+        android:textSize="@dimen/text_size"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pok_man_type" />
+        app:layout_constraintTop_toBottomOf="@+id/pokMonType" />
 
     <TextView
-        android:id="@+id/pok_man_height"
+        android:id="@+id/pokMonHeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textSize="30sp"
+        android:textSize="@dimen/text_size"
         android:textStyle="bold"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="@dimen/margin_top"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pok_man_weight" />
+        app:layout_constraintTop_toBottomOf="@+id/pokMonWeight" />
 </androidx.constraintlayout.widget.ConstraintLayout>

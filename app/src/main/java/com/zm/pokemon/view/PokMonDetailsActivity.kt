@@ -1,20 +1,25 @@
 package com.zm.pokemon.view
 
 import android.os.Bundle
-import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.zm.pokemon.R
-import com.zm.pokemon.model.PokMonDetails
+import com.zm.pokemon.model.PokeMonDetails
 import com.zm.pokemon.viewmodel.PokMonDetailsViewModel
-import kotlinx.android.synthetic.main.activity_pok_mon_details.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class PokMonDetailsActivity : AppCompatActivity() {
+class PokMonDetailsActivity : BaseActivity() {
 
     private val pockMonDetailsViewModel: PokMonDetailsViewModel by viewModel()
+    private lateinit var pokMonName: TextView
+    private lateinit var pokMonWeight: TextView
+    private lateinit var pokMonHeight: TextView
+    private lateinit var pokMonType: TextView
+    private lateinit var pokMonImageView: ImageView
+
     var id: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,30 +33,29 @@ class PokMonDetailsActivity : AppCompatActivity() {
     }
 
     private fun init() {
+        pokMonName = findViewById(R.id.pokMonName)
+        pokMonWeight = findViewById(R.id.pokMonWeight)
+        pokMonHeight = findViewById(R.id.pokMonHeight)
+        pokMonType = findViewById(R.id.pokMonType)
+        pokMonImageView = findViewById(R.id.pokMonImage)
 
-        try {
             id?.let { pockMonDetailsViewModel.getPokMonDetails(it) }
 
             pockMonDetailsViewModel.pokeMonDetails.observe(this, Observer {
                 setData(it)
             })
-        } catch (e: Exception) {
-            Log.d("Exception", e.toString())
         }
 
-    }
+    private fun setData(pokeMonDetails: PokeMonDetails) {
 
-    private fun setData(pokMonDetails: PokMonDetails) {
-
-        pok_man_name.text = pokMonDetails.name
-        pok_man_weight.text = "Weight: " + pokMonDetails.weight
-        pok_man_height.text = "Height: " + pokMonDetails.height
-        pok_man_type.text = pokMonDetails.types[0].type.toString()
+        pokMonName.text = pokeMonDetails.name
+        pokMonWeight.text = "Weight: " + pokeMonDetails.weight
+        pokMonHeight.text = "Height: " + pokeMonDetails.height
+        pokMonType.text = pokeMonDetails.types[0].type.toString()
         Glide.with(this)
-            .load(pokMonDetails.sprites.front_default)
+            .load(pokeMonDetails.sprites.front_default)
             .diskCacheStrategy(DiskCacheStrategy.NONE)
-            .into(pok_man_image)
-
+            .into(pokMonImageView)
 
     }
 }

@@ -1,10 +1,8 @@
 package com.zm.pokemon.view
 
-import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +13,7 @@ import com.zm.pokemon.viewmodel.HomeScreenViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class HomeScreenActivity : AppCompatActivity(),
+class HomeScreenActivity : BaseActivity(),
     PokeMonListAdapter.ItemClickListener {
 
     private val homeScreenViewModel: HomeScreenViewModel by viewModel()
@@ -42,13 +40,10 @@ class HomeScreenActivity : AppCompatActivity(),
         }
 
         homeScreenViewModel.loading.observe(this, Observer {
-            var progressDialog = ProgressDialog(this@HomeScreenActivity)
-            progressDialog.setCancelable(true)
-            progressDialog.setMessage("Please wait...")
             if (it) {
-                progressDialog.show();
+                showProgress()
             } else {
-                progressDialog.cancel()
+                cancelProgress()
             }
         })
     }
@@ -57,11 +52,14 @@ class HomeScreenActivity : AppCompatActivity(),
 
         adapter = PokeMonListAdapter(pokeMonList, this)
         recyclerView?.adapter = adapter
+
     }
 
     override fun onItemClick(position: Int) {
         val intent = Intent(this, PokMonDetailsActivity::class.java)
-        intent.putExtra("id", (position + 1).toString())
-        startActivity(intent)
+        intent.apply {
+            putExtra("id", (position + 1).toString())
+            startActivity(intent)
+        }
     }
 }

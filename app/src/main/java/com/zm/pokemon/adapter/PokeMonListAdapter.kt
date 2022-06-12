@@ -11,7 +11,7 @@ import com.zm.pokemon.model.PokeMon
 import com.zm.pokemon.model.PokeMonList
 
 
-class PokeMonListAdapter internal constructor(
+class PokeMonListAdapter  constructor(
     pokeMonList: PokeMonList,
     clickListener: ItemClickListener
 ) :
@@ -48,14 +48,14 @@ class PokeMonListAdapter internal constructor(
 
 
         init {
-            pokMonName = itemView.findViewById(R.id.pokemon_name)
+            pokMonName = itemView.findViewById(R.id.pokMonName)
             lyt = itemView.findViewById(R.id.lyt)
 
         }
     }
 
 
-    internal interface ItemClickListener {
+     interface ItemClickListener {
         fun onItemClick(position: Int)
     }
 

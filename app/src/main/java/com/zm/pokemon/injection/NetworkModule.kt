@@ -2,8 +2,8 @@ package com.zm.pokemon.injection
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.zm.pokemon.respository.ApiInterface
-import com.zm.pokemon.util.Constants
+import com.zm.pokemon.respository.NetworkInterface
+import com.zm.pokemon.utils.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -40,9 +40,9 @@ val appModule = module {
             .build()
     }
 
-
-    single<ApiInterface> {
-        get<Retrofit>().create(ApiInterface::class.java)
+    // Provide NetworkInterface
+    single<NetworkInterface> {
+        get<Retrofit>().create(NetworkInterface::class.java)
     }
 }
 

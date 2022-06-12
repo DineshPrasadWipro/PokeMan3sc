@@ -19,9 +19,9 @@
         <activity
             android:name=".view.PokMonDetailsActivity"
             android:label="@string/title_activity_pokmon_details">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".view.HomeScreenActivity" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.HomeScreenActivity" />
         </activity>
         <activity
             android:name=".view.HomeScreenActivity"
