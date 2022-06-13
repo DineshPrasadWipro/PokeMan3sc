@@ -1,5 +1,6 @@
 package com.zm.pokemon.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,11 +9,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.zm.pokemon.R
 import com.zm.pokemon.model.PokeMon
-import com.zm.pokemon.model.PokeMonList
 
 
 class PokeMonListAdapter  constructor(
-    pokeMonList: PokeMonList,
+    pokeMonList: List<PokeMon>,
     clickListener: ItemClickListener
 ) :
     RecyclerView.Adapter<PokeMonListAdapter.ViewHolder>() {
@@ -21,7 +21,7 @@ class PokeMonListAdapter  constructor(
     private var mClickListener: ItemClickListener? = null
 
     init {
-        mData = pokeMonList.results
+        mData = pokeMonList
         mClickListener = clickListener
     }
 
@@ -42,6 +42,12 @@ class PokeMonListAdapter  constructor(
         return mData.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
+    fun filterList(filterllist: ArrayList<PokeMon>) {
+        mData = filterllist
+        notifyDataSetChanged()
+    }
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var pokMonName: TextView
         var lyt: LinearLayout
@@ -54,10 +60,7 @@ class PokeMonListAdapter  constructor(
         }
     }
 
-
      interface ItemClickListener {
         fun onItemClick(position: Int)
     }
-
-
 }
