@@ -26,7 +26,7 @@ class PokeMonListAdapter  constructor(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var view = LayoutInflater.from(parent.context)
+        val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.pokemon_row, parent, false)
         return ViewHolder(view)
     }

@@ -1,6 +1,5 @@
 package com.zm.pokemon
 
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import com.zm.pokemon.model.PokeMonList
 import com.zm.pokemon.repository.mock.MockNetworkRepository
@@ -13,7 +12,7 @@ import org.junit.Before
 import org.junit.Test
 import org.koin.dsl.module
 
-class HomeScreenViewModelTest() : TestBase() {
+class HomeScreenViewModelTest : TestBase() {
 
     private val networkRepository: NetworkRepository = mockk(relaxed = true)
     private lateinit var mockNetworkRepository: MockNetworkRepository
@@ -21,13 +20,12 @@ class HomeScreenViewModelTest() : TestBase() {
 
     private val pokeMonListLiveData = MutableLiveData<PokeMonList>()
 
-    private lateinit var lifecycleOwner: LifecycleOwner
     private val loading = MutableLiveData<Boolean>()
     private val errorMessage = MutableLiveData<String>()
 
 
     override val koinModule = module {
-        single<NetworkRepository>(override = true) { networkRepository }
+        single(override = true) { networkRepository }
 
     }
 

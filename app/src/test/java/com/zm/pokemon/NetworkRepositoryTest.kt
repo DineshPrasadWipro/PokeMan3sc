@@ -14,7 +14,7 @@ class NetworkRepositoryTest {
     private lateinit var mockNetworkRepository: MockNetworkRepository
 
     private var pokeMonList: PokeMonList = mockk(relaxed = true)
-    var pokeMonDetails: PokeMonDetails = mockk(relaxed = true)
+    private var pokeMonDetails: PokeMonDetails = mockk(relaxed = true)
 
     @Before
     fun setUp() {

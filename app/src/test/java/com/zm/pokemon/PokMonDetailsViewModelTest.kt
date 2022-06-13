@@ -22,7 +22,7 @@ class PokMonDetailsViewModelTest : TestBase() {
 
 
     override val koinModule = module {
-        single<NetworkRepository>(override = true) { networkRepository }
+        single(override = true) { networkRepository }
 
     }
 

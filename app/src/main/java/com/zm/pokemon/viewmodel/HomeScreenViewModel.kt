@@ -24,7 +24,7 @@ class HomeScreenViewModel(private val networkRepository: NetworkRepository) : Vi
             try {
                 val response = networkRepository.getPokeManList()
 
-                response?.let {
+                response.let {
                     _pokeMonList.value = it
                     loading.value = false
                 }

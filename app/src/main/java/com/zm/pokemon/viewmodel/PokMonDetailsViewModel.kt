@@ -24,7 +24,7 @@ class PokMonDetailsViewModel(private val networkRepository: NetworkRepository) :
                 val response = networkRepository.getPokManDetails(id)
 
                 withContext(Dispatchers.Main) {
-                    response?.let {
+                    response.let {
                         _pokeMonDetails.value = it
                     }
                 }

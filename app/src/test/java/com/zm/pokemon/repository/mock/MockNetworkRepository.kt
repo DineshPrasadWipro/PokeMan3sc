@@ -8,7 +8,7 @@ import io.mockk.mockk
 
 class MockNetworkRepository() : INetworkRepository {
 
-    var pokMonList: PokeMonList = mockk(relaxed = true)
+    private var pokMonList: PokeMonList = mockk(relaxed = true)
     var pokMonDetails: PokeMonDetails = mockk(relaxed = true)
     private var pokeMon: ArrayList<PokeMon> = ArrayList<PokeMon>()
     override suspend fun getPokeManList(): PokeMonList {

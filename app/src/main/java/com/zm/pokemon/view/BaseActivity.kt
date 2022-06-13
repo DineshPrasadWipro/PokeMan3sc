@@ -1,8 +1,9 @@
 package com.zm.pokemon.view
 
-import android.app.ProgressDialog
+
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.zm.pokemon.utils.ProgressDialog
 
 abstract class BaseActivity : AppCompatActivity() {
     private var dialog: ProgressDialog? = null
@@ -19,4 +20,6 @@ abstract class BaseActivity : AppCompatActivity() {
     fun cancelProgress() {
         if (dialog!!.isShowing) dialog?.cancel()
     }
+
+
 }

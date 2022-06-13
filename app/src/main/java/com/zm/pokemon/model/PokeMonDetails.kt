@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class PokeMonDetails(
 
-    @SerializedName("base_experience") val base_experience: String,
+    @SerializedName("base_experience") val baseExperience: String,
 
     @SerializedName("height") val height: String,
 

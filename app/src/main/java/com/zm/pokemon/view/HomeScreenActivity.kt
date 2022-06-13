@@ -3,7 +3,6 @@ package com.zm.pokemon.view
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.zm.pokemon.R
@@ -31,21 +30,21 @@ class HomeScreenActivity : BaseActivity(),
         recyclerView?.layoutManager = LinearLayoutManager(this)
         homeScreenViewModel.getPokMonList()
 
-        homeScreenViewModel.pokeMonList.observe(this, Observer {
+        homeScreenViewModel.pokeMonList.observe(this) {
             setUpListView(it)
-        })
+        }
 
         homeScreenViewModel.errorMessage.observe(this) {
             Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
         }
 
-        homeScreenViewModel.loading.observe(this, Observer {
+        homeScreenViewModel.loading.observe(this) {
             if (it) {
                 showProgress()
             } else {
                 cancelProgress()
             }
-        })
+        }
     }
 
     private fun setUpListView(pokeMonList: PokeMonList) {

@@ -2,7 +2,6 @@ package com.zm.pokemon.respository
 
 import com.zm.pokemon.model.PokeMonDetails
 import com.zm.pokemon.model.PokeMonList
-import retrofit2.Response
 
 interface INetworkRepository {
 

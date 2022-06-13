@@ -3,7 +3,6 @@ package com.zm.pokemon.view
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.zm.pokemon.R
@@ -25,7 +24,7 @@ class PokMonDetailsActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pok_mon_details)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         intent?.let {
             id = it.getStringExtra("id")
         }
@@ -41,10 +40,10 @@ class PokMonDetailsActivity : BaseActivity() {
 
             id?.let { pockMonDetailsViewModel.getPokMonDetails(it) }
 
-            pockMonDetailsViewModel.pokeMonDetails.observe(this, Observer {
+            pockMonDetailsViewModel.pokeMonDetails.observe(this) {
                 setData(it)
-            })
-        }
+            }
+    }
 
     private fun setData(pokeMonDetails: PokeMonDetails) {
 
